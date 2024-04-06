@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h1 class="mb-4">Search Results</h1>
+
+        {% if not length %}
+            <div class="alert alert-warning" role="alert">
+                <strong>No events found.</strong>
+            </div>
+        {% else %}
+            <ul class="list-group">
+                {% for event in events %}
+                    <li class="list-group-item">
+                        <a href="{{ url_for('event_details_organiser', event_id=event.id) }}">{{ event.event_name }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <a href="{{ url_for('organiser_home') }}" class="btn btn-primary mt-3">Back to Home</a>
+    </div>
+{% endblock content %}

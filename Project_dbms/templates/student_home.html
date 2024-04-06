@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Welcome, {{ student.student_name }}</h1>
+    <div class="row">
+        <div>
+            <h2>Events</h2>
+            <ul class="list-group">
+                {% for event in all_events%}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <a href="{{ url_for('event_details_student', event_id=event.id) }}">{{ event.event_name }}</a>
+                        </div>
+                        <div>
+                            {% if event not in registered_events %}
+                            <a href="{{ url_for('event_register', student_roll=student.roll, event_id=event.id) }}" class="btn btn-sm btn-info">Register</a>
+                            {% else %}
+                            <a href="{{ url_for('event_deregister_student', student_roll=student.roll, event_id=event.id) }}" class="btn btn-sm btn-info">Deregister</a>
+                            {% endif %}
+                            {% if event not in volunteered_events %}
+                            <a href="{{ url_for('volunteer_register', student_roll=student.roll, event_id=event.id) }}" class="btn btn-sm btn-secondary ml-2">Register as Volunteer</a>
+                            {% else %}
+                            <a href="{{ url_for('volunteer_deregister_student', student_roll=student.roll, event_id=event.id) }}" class="btn btn-sm btn-secondary ml-2">Deregister as Volunteer</a>
+                            {% endif %}
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <br>
+</div>
+<div class="d-flex justify-content-center m-3">
+    <a href="{{ url_for('logout_student',_id=student.roll) }}" class="btn btn-secondary">Logout</a>
+</div>
+{% endblock content %}

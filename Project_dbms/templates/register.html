@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1 class="m-4">Welcome to Event Registration</h1>
+    <strong class="p-1">Choose your role:</strong>
+
+    <a href="{{ url_for('organiser_register') }}" class="m-1">
+        <button class="btn btn-primary">Register as Organizer</button>
+    </a>
+
+    <a href="{{ url_for('participate_register') }}" class="m-1">
+        <button class="btn btn-secondary">Register as Participant</button>
+    </a>
+{% endblock content %}

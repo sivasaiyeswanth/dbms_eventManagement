@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <div class="container mt-4">
+    <div class="mb-4">
+      <h2>Search Events</h2>
+      <form method="POST" action="{{ url_for('participant_home') }}" class="mb-4">
+        {{ search_form.hidden_tag() }}
+        <div class="form-group">
+            {{ search_form.search(class="form-control") }}
+            <div class="d-flex justify-content-center p-3">
+                <button class="btn btn-secondary" type="submit">Search</button>
+            </div>
+        </div>
+    </form>
+    </div>
+
+    <h1 class="mb-4">Events</h1>
+    {% for event in events %}
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Event Name: {{ event.event_name }}</h5>
+          <p class="card-text">Description:  {{ event.description }}</p>
+          <p class="card-text">Click below for details</p>
+          <a href="{{ url_for('event_details_forp', event_id=event.id) }}" class="btn btn-primary">Details</a>
+          {% if event.over %}
+            <a href="{{ url_for('see_winners', event_id=event.id) }}" class="btn btn-success ml-2">See Winners</a>
+          {% else %}
+            {% if event not in registered_events %}
+              <a href="{{ url_for('event_register_forp', participant_id=participant_id, event_id=event.id) }}" class="btn btn-secondary ml-2">Register</a>
+            {% else %}
+              <a href="{{ url_for('deregister_forp', participant_id=participant_id, event_id=event.id) }}" class="btn btn-danger ml-2">Deregister</a>
+            {% endif %}
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+    
+    <div class="mt-3 d-flex justify-content-center">
+      <a href="{{ url_for('logout_participant', _id=participant_id) }}" class="btn btn-secondary m-3">Logout</a>
+    </div>
+  </div>
+{% endblock %}

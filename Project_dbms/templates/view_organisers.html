@@ -1,0 +1,17 @@
+{%extends "layout.html"%}
+{%block content%}
+{% for organiser in organisers %}
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">{{ organiser.first_name }} {{organiser.last_name}}</h1>
+            <a href="{{ url_for('remove_organiser',id=organiser.id) }}" class="btn btn-primary">Remove</a>
+        </div>
+    </div>
+</div>
+{%endfor%}
+<div class="container mt-5 d-flex justify-content-center">
+    <a href="{{ url_for('admin_home') }}" class="btn btn-secondary ">Back</a>
+</div>
+{%endblock%}
+            

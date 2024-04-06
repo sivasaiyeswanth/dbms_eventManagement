@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+    
+    <ul>
+        {% for event in events %}
+            <li><a href="{{ url_for('event_details', event_id=event.id) }}">{{ event.event_name }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ url_for('organiser_home') }}">Back to Home</a>
+</body>
+</html>

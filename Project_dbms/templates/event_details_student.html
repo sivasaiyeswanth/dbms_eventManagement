@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title">{{ event.event_name }}</h1>
+                <p class="card-text"><strong>Event Type:</strong> {{ event.event_type }}</p>
+                <p class="card-text"><strong>Date:</strong> {{ event.date }}</p>
+                <p class="card-text"><strong>Time:</strong> {{ event.time }}</p>
+                <p class="card-text"><strong>Venue:</strong> {{ event.venue }}</p>
+                <p class="card-text"><strong>Organizer:</strong> {{ organiser.first_name }} {{ organiser.last_name }}</p>
+                {% if event.description %}
+                    <p class="card-text"><strong>Description:</strong> {{ event.description }}</p>
+                {% endif %}
+                {% if event_details.accommodation_details %}
+                    <p>Accommodation Details: {{ event_details.accommodation_details }}</p>
+                {% endif %}
+
+                {% if event_details.food_cost %}
+                    <p>Food Cost: {{ event_details.food_cost }}</p>
+                {% endif %}
+
+
+                <a href="{{ url_for('student_home') }}" class="btn btn-primary">Back</a>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

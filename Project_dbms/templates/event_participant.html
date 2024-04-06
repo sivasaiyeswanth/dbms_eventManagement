@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <div class="container">
+    <h1>Events</h1>
+    {% for event,organiser in events %}
+        
+          <div class="card mt-4">
+            <div class="card-body">
+              <h5 class="card-title">{{ event.name }}</h5>
+              <p class="card-text">{{ event.description }}</p>
+                <p class="card-text">Date: {{ event.date }}</p>
+                <p class="card-text">Time: {{ event.time }}</p>
+                <p class="card-text">Venue: {{ event.venue }}</p>
+                
+                <p>Organiser: {{ organiser.first_name }} {{ organiser.last_name }}</p>
+                <p>Organiser Username: {{ organiser.username }}</p>
+            </div>
+          </div>
+        
+    {% endfor %}
+  </div>
+{% endblock %}

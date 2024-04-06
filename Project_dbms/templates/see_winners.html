@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <div class="container">
+    <h1>Winners for {{ event.event_name }}</h1>
+
+    {% if winners %}
+      <ul class="list-group">
+        {% for winner in winners %}
+          <li class="list-group-item">{{ winner.name }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No winners declared for this event yet.</p>
+    {% endif %}
+
+    <a href="{{ url_for('participant_home') }}" class="btn btn-secondary mt-3">Back to Home</a>
+  </div>
+{% endblock %}
