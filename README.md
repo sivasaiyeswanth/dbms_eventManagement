@@ -6,10 +6,10 @@ This project is a simple Event Management System developed using PostgreSQL, Pyt
 This project was completed within a span of 2 days and serves as a basic implementation of an event management system. It focuses on the core functionalities of event creation, participant registration, and volunteer management.
 
 # Technologies Used
-# Database Management System: PostgreSQL
-# Backend: Python with Flask framework
-# Frontend: HTML, CSS (minimalistic)
-# Features
+ Database Management System: PostgreSQL
+ Backend: Python with Flask framework
+ Frontend: HTML, CSS (minimalistic)
+ Features
 Event Creation: Organizers can create new events providing details such as event name, date, location, etc.
 
 Participant Registration: Students can register for events they are interested in. Registration includes basic information like name, college, contact details, etc.
