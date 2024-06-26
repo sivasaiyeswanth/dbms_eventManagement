@@ -1,6 +1,3 @@
-# dbms_eventManagement
-
-Certainly! Below is a basic README.md file content describing your DBMS project for an event management system using PostgreSQL:
 
 # Event Management System
 This project is a simple Event Management System developed using PostgreSQL, Python, and Flask. It allows organizers to create events, students to participate or volunteer for events, and participants to register for events from other colleges.
